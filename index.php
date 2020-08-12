@@ -5,11 +5,28 @@
 </head>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 <script type="text/javascript" src="bootstrap/js/bootstrap.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- MDBootstrap Datatables  -->
+<link href="plugin/mdbootstrap/css/addons/datatables.min.css" rel="stylesheet">
+<!-- MDBootstrap Datatables  -->
+<script type="text/javascript" src="plugin/mdbootstrap/js/addons/datatables.min.js"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function () {
+
+		$('#tableData').DataTable();
+
+	});
+
+</script>
 
 <style>
 	.footer {
@@ -21,11 +38,13 @@
 		color: #000000;
 		text-align: center;
 	}
+
+
 </style>
 
 <?php include("member.php"); ?>
 
-<body style="width:90%;margin: auto;">
+<body style="width:95%;margin: auto;">
 
 	<h2>MEMBER BNK48 & CGM48</h2>
 
@@ -33,35 +52,40 @@
 		// echo "<pre>";
 		// print_r($memberArray);
 		// echo "</pre>";
+		// 
 	?>
 
-	<table class="table table-stript table-bordered">
+	<table id="tableData" class="table table-striped table-bordered table-sm " cellspacing="0">
+		<thead>
 		<tr>
-			<th>NameTH</th>
-			<th>NameEN</th>
-			<th>NicknameTH</th>
-			<th>NicknameEN</th>
-			<th>Birthday</th>
-			<th>Height</th>
-			<th>Birthplace</th>
+			<th>ชื่อ-นามสกุล (TH)</th>
+			<th>ชื่อ-นามสกุล (EN)</th>
+			<th>ชื่อเล่น (TH)</th>
+			<th>ชื่อเล่น (EN)</th>
+			<th>วันเกิด</th>
+			<th>ส่วนสูง(cm.)</th>
+			<th>ภูมิลำเนา</th>
 			<th>Group</th>
 			<th>Team</th>
 			<th>Generation</th>
 		</tr>
+		</thead>
+		<tbody>
 		<?php foreach ($memberArray as $key => $value): ?>
 			<tr>
-				<td><?= $value[0] ?></td>
-				<td><?= $value[1] ?></td>
-				<td><?= $value[2] ?></td>
-				<td><?= $value[3] ?></td>
-				<td><?= $value[4] ?></td>
-				<td><?= $value[5] ?></td>
-				<td><?= $value[6] ?></td>
-				<td><?= $value[7] ?></td>
-				<td><?= $value[8] ?></td>
-				<td><?= $value[9] ?></td>
+				<td><?= $value["fullname_th"] ?></td>
+				<td><?= $value["fullname_en"] ?></td>
+				<td><?= $value["nickname_th"] ?></td>
+				<td><?= $value["nickname_en"] ?></td>
+				<td><?= $value["birthday"] ?></td>
+				<td><?= $value["height"] ?></td>
+				<td><?= $value["birthplace"] ?></td>
+				<td><?= $value["group"] ?></td>
+				<td><?= $value["team"] ?></td>
+				<td><?= $value["generation"] ?></td>
 			</tr>
 		<?php endforeach ?>
+		</tbody>
 	</table>
 
 
