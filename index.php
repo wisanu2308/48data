@@ -43,7 +43,7 @@
 
 	#tableData {
 		/*table-layout:fixed;*/
-		font-size: 13px;
+		font-size: 12px;
 	}
 
 </style>
@@ -85,11 +85,21 @@
 				<?php 
 					switch ($value["group"]) {
 						case 'BNK48':
-							# code...
+							if ($value["generation"] == "1") {
+								$bgColor = "background-color: #E4B7E2";
+							}
+							if ($value["generation"] == "2") {
+								$bgColor = "background-color: #EFC3ED";
+							}
+							if ($value["generation"] == "3") {
+								$bgColor = "background-color: #F4D7F3";
+							}
 							break;
 						
 						case 'CGM48':
-							# code...
+							if ($value["generation"] == "1") {
+								$bgColor = "background-color: #87E4CE";
+							}
 							break;
 						
 						default:
