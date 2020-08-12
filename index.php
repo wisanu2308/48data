@@ -52,7 +52,8 @@
 
 <body style="width:95%;margin: auto;">
 
-	<h2>MEMBER BNK48 & CGM48</h2>
+	<h2 style="display: inline-block;">MEMBER BNK48 & CGM48</h2> 
+	<a href="https://bit.ly/33QQAzx" target="_blank" style="display: inline-block;color: black;"> (ข้อมูลเพิ่มเติม)</a>
 
 	<?php 
 		// echo "<pre>";
@@ -71,7 +72,7 @@
 				<th style="font-size: 1vw;width: 9%;">ชื่อเล่น</th>
 				<th style="font-size: 1vw;">Nickname</th>
 				<th style="font-size: 1vw;">วันเกิด</th>
-				<th style="font-size: 1vw;">ส่วนสูง(cm.)</th>
+				<th style="font-size: 1vw;">ส่วนสูง</th>
 				<th style="font-size: 1vw;">ภูมิลำเนา</th>
 				<th style="font-size: 1vw;">Group</th>
 				<th style="font-size: 1vw;">Team</th>
@@ -80,7 +81,24 @@
 			</thead>
 			<tbody>
 			<?php foreach ($memberArray as $key => $value): ?>
-				<tr>
+
+				<?php 
+					switch ($value["group"]) {
+						case 'BNK48':
+							# code...
+							break;
+						
+						case 'CGM48':
+							# code...
+							break;
+						
+						default:
+							$bgColor = "";
+							break;
+					}
+				?>
+
+				<tr style="<?= $bgColor ?>">
 					<td><?= $value["fullname_th"] ?></td>
 					<td><?= $value["fullname_en"] ?></td>
 					<td><?= $value["nickname_th"] ?></td>
