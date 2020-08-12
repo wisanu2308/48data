@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>48 Group Birthday</title>
+	<title>48 Group Information</title>
 </head>
 
 <meta charset="utf-8">
